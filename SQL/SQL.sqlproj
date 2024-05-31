@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SQL</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{1a0371a6-51ae-412b-8b09-dd43701bda5a}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>PgmD.SQL</RootNamespace>
+    <AssemblyName>PgmD.SQL</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <SccProjectName>$/Program Management AS/Corporate/PM/PGMD/Dev/SQL</SccProjectName>
+    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
+    <SccAuxPath>https://gide-tfs.web.boeing.com/tfs/it</SccAuxPath>
+    <SccLocalPath>.</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatTSqlWarningsAsErrors>True</TreatTSqlWarningsAsErrors>
+    <RunSqlCodeAnalysis>True</RunSqlCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StaticCodeAnalysis.SuppressMessages.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Subhierarchies.sql" />
+    <Build Include="dbo\Tables\RoleTypes.sql" />
+    <Build Include="dbo\Tables\RoleTypePrivileges.sql" />
+    <Build Include="dbo\Tables\Personnel.sql" />
+    <Build Include="dbo\Tables\OrgEntities.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Tables\OERolePersonnel.sql" />
+    <Build Include="dbo\Tables\OEHistory.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
+    <Build Include="dbo\Tables\HierarchyVersions.sql" />
+    <Build Include="dbo\Tables\HierarchyNodes.sql" />
+    <Build Include="dbo\Tables\Hierarchies.sql" />
+    <Build Include="dbo\Tables\HierarchicalAC.sql" />
+    <Build Include="dbo\Tables\Applications.sql" />
+    <Build Include="dbo\Tables\ApplicationPrivilegeAttributes.sql" />
+    <Build Include="dbo\Tables\ApplicationLogInfo.sql" />
+    <Build Include="dbo\Tables\ApplicationConfiguration.sql" />
+    <Build Include="dbo\Functions\udfParseColumnString.sql" />
+    <Build Include="dbo\Functions\udfGetFullHierarchy.sql" />
+    <Build Include="dbo\Functions\udfGetExpandedHierarchy.sql" />
+    <Build Include="dbo\Stored Procedures\uspUpdatePersonnel.sql" />
+    <Build Include="dbo\Stored Procedures\uspUpdateAC.sql" />
+    <Build Include="dbo\Stored Procedures\uspInsertApplicationLogInfo.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetPersonnel.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetHierarchy.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\uspGetAppRolePrivs.sql" />
+    <Build Include="dbo\Stored Procedures\uspGetAppPrivAttributes.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+    <Build Include="dbo\Stored Procedures\uspGetAccessControlInfo.sql" />
+    <Build Include="dbo\Stored Procedures\uspDeleteAC.sql">
+      <AnsiNulls>Off</AnsiNulls>
+      <QuotedIdentifier>Off</QuotedIdentifier>
+    </Build>
+  </ItemGroup>
+</Project>

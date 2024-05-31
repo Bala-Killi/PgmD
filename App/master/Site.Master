@@ -1,0 +1,78 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PgmD.App.master.Site" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+	<title>Master Page</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
+	<meta name="creator" content="" />
+	<meta name="owner" content="" />
+	<link rel="shortcut icon" type="image/x-icon" href="/CDN/resources/images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/CDN/ext-3.4.1/resources/css/ext-all.css" />
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<div id="loading-mask" style="background-color: #FBFBFB; width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 20000;">
+	</div>
+	<div id="loading" style="padding: 2px; height: auto; position: absolute; top: 40%; left: 45%; z-index: 20001; font-weight: bold; font-size: 10pt; color: #000080">
+		<img src="/CDN/ext-3.4.1/resources/images/default/shared/blue-loading.gif"
+			style="height: 32px; width: 32px; vertical-align: middle; margin-right: 8px;" alt="loading" />
+		Loading...
+	</div>
+	<div id="header" class="x-hide-display">
+		<table id="headerTable" style="border: 0; border-collapse: separate; border-spacing: 0; width: 100%;">
+			<tr>
+				<td style="height: 59px; width: 200px; vertical-align: middle;">
+					<a href="#">
+						<img src="~/includes/img/boeing_logo_200x40.gif" runat="server" alt="" title="Boeing Home" style="border: 0;" />
+					</a>
+				</td>
+				<td id="headerRight" style="color: #0135AB; padding: 0 35px 0 0; text-decoration: none; text-transform: capitalize;">
+					<div style="font: bold 14pt Arial;">Program Directory</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="footer" class="x-hide-display">
+		<div class="footerLinks">
+			<div id="footer-identity">
+			</div>
+		</div>
+		<div id="footerText">
+			<p>
+				BOEING is a trademark of Boeing Management Company.
+			</p>
+			<p>
+				Copyright &copy; 2011 - <%= DateTime.Now.Year %> Boeing. All rights reserved.
+				<a target="_blank" href="http://www.boeing.com/companyoffices/aboutus/privacy.html">Privacy Policy</a>
+			</p>
+		</div>
+		<div class="securityLabel" style="text-align: center; position: relative; bottom: 15px; width: 100%;">
+			Boeing Proprietary
+		</div>
+	</div>
+	<%-- Ext.ux --%>
+	<script type="text/javascript" src="/CDN/ext-3.4.1/adapter/ext/ext-base<% if (HttpContext.Current.Request.IsLocal || HttpContext.Current.IsDebuggingEnabled) { Response.Write("-debug"); } %>.js"></script>
+	<script type="text/javascript" src="/CDN/ext-3.4.1/ext-all<% if (HttpContext.Current.Request.IsLocal || HttpContext.Current.IsDebuggingEnabled) { Response.Write("-debug"); } %>.js"></script>
+	<script type="text/javascript">
+		Ext.BLANK_IMAGE_URL = Ext.isIE ? "/CDN/ext-3.4.1/resources/images/default/s.gif" : Ext.BLANK_IMAGE_URL;
+		Ext.state.Manager.setProvider(new Ext.state.CookieProvider({
+			path: location.pathname.substring(0, location.pathname.lastIndexOf("/") + 1),
+			secure: Ext.isSecure
+		}));
+		Ext.namespace('PgmD');
+	</script>
+	<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+	<script type="text/javascript">
+		Ext.onReady(function () {
+			Ext.get("loading").remove();
+			Ext.get("loading-mask").fadeOut({
+				remove: true
+			});
+		});
+	</script>
+	<noscript>Your browser does not support JavaScript! </noscript>
+</body>
+</html>

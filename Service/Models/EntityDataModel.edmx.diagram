@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1dfdeb58ec614049ae9403f8eaf69906" Name="All">
+        <EntityTypeShape EntityType="PgmD.Model.ApplicationConfiguration" Width="2" PointX="0.75" PointY="5.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.HierarchicalAC" Width="1.875" PointX="6" PointY="3.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.ApplicationLogInfo" Width="2" PointX="5.75" PointY="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.ApplicationPrivilegeAttribute" Width="1.875" PointX="4.125" PointY="11" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.Application" Width="1.875" PointX="1.5" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PgmD.Model.Hierarchy" Width="1.875" PointX="6" PointY="7.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.HierarchyVersion" Width="1.875" PointX="3.375" PointY="8.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.OERolePersonnel" Width="1.875" PointX="6" PointY="5.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.OrgEntity" Width="1.875" PointX="3.375" PointY="7.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.Personnel" Width="1.875" PointX="0.75" PointY="3.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.RoleTypePrivilege" Width="1.875" PointX="3.375" PointY="1.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.RoleType" Width="1.875" PointX="0.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="PgmD.Model.Subhierarchy" Width="1.875" PointX="8.625" PointY="7.375" IsExpanded="false" />
+        <AssociationConnector Association="PgmD.Model.FK_ApplicationPrivilegeAttributes_Applications" />
+        <AssociationConnector Association="PgmD.Model.FK_RoleTypes_Applications" />
+        <AssociationConnector Association="PgmD.Model.FK_HierarchicalAC_RoleTypePrivileges" />
+        <AssociationConnector Association="PgmD.Model.FK_HierarchicalAC_CreatedBy_Personnel" />
+        <AssociationConnector Association="PgmD.Model.FK_HierarchicalAC_Grantee_Personnel" />
+        <AssociationConnector Association="PgmD.Model.FK_HierarchicalAC_ModifiedBy_Personnel" />
+        <AssociationConnector Association="PgmD.Model.FK_HierarchicalAC_Node_OrgEntities" />
+        <AssociationConnector Association="PgmD.Model.FK_HierarchicalAC_Root_OrgEntities" />
+        <AssociationConnector Association="PgmD.Model.FK_Hierarchies_HierarchyVersions" />
+        <AssociationConnector Association="PgmD.Model.FK_Hierarchies_OrgEntities" />
+        <AssociationConnector Association="PgmD.Model.FK_Hierarchies_CreatedBy_Personnel" />
+        <AssociationConnector Association="PgmD.Model.FK_Hierarchies_ModifiedBy_Personnel" />
+        <AssociationConnector Association="PgmD.Model.FK_Subhierarchies_Hierarchies" />
+        <AssociationConnector Association="PgmD.Model.FK_Subhierarchies_Child_Hierarchies" />
+        <AssociationConnector Association="PgmD.Model.FK_OERolePersonnel_OrgEntities" />
+        <AssociationConnector Association="PgmD.Model.FK_OERolePersonnel_RoleTypes" />
+        <AssociationConnector Association="PgmD.Model.FK_OERolePersonnel_ModifiedBy_Personnel" />
+        <AssociationConnector Association="PgmD.Model.FK_OERolePersonnel_PersonID_Personnel" />
+        <AssociationConnector Association="PgmD.Model.FK_OrgEntities_CreatedBy_Personnel" />
+        <AssociationConnector Association="PgmD.Model.FK_OrgEntities_ModifiedBy_Personnel" />
+        <AssociationConnector Association="PgmD.Model.FK_RoleTypePrivileges_RoleTypes" />
+        <EntityTypeShape EntityType="PgmD.Model.HierarchyNode" Width="1.5" PointX="8.625" PointY="6.25" IsExpanded="false" />
+        <AssociationConnector Association="PgmD.Model.FK_HierarchyNodes_Hierarchies" />
+        <AssociationConnector Association="PgmD.Model.FK_HierarchyNodes_HierarchyNodes" />
+        <AssociationConnector Association="PgmD.Model.FK_HierarchyNodes_OrgEntities" />
+        <AssociationConnector Association="PgmD.Model.FK_Subhierarchies_HierarchyNodes" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
